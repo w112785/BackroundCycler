@@ -14,7 +14,7 @@ using System.Security;
 [assembly: AssemblyConfiguration ( "" )]
 [assembly: AssemblyCompany ( "William McCormick" )]
 [assembly: AssemblyProduct ( "SingleInstance" )]
-[assembly: AssemblyCopyright ( "Copyright © 2006-2007, By William Edward McCormick" )]
+[assembly: AssemblyCopyright ( "Copyright © 2006-2018, By William Edward McCormick" )]
 [assembly: AssemblyTrademark ( "" )]
 [assembly: AssemblyCulture ( "" )]
 
