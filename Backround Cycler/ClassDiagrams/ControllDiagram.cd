@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="All settings properties make a refrence to ApplicationInfo.settings object">
+    <Position X="1.875" Y="6.062" Height="0.875" Width="1.543" />
+  </Comment>
+  <Comment CommentText="Program.MainForm Used as a Reference to a Startup Object">
+    <Position X="2.094" Y="0.5" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Backround_Cycler.Control.FileList" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAZAAAAgCASAAAAAAAQABAQAAEAAkAAAAAQAIAhQlAA=</HashCode>
+      <FileName>Control\FileList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backround_Cycler.Control.DEBUG" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAACAAAAgAAACAAAACAAQEAAAIAAAQAAAEACA=</HashCode>
+      <FileName>Control\DEBUG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backround_Cycler.Control.BehaviorSettings" Collapsed="true">
+    <Position X="1" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEABAgBAJDAAAABcCECAgAACBAAAQxgAoAAAAhEAAyA=</HashCode>
+      <FileName>Control\BehaviorSettings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Backround_Cycler.Control.About" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAUAAACAAAUCAAAIUAAQgAAAAAAAAAA=</HashCode>
+      <FileName>Control\About.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backround_Cycler.Core.UI.Setting" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="animate" Type="Backround_Cycler.Core.Animation" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="4.062" />
+        <Point X="7.688" Y="4.062" />
+        <Point X="7.688" Y="1.562" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="about1" Type="Backround_Cycler.Control.About" FixedFromPoint="true">
+      <Path>
+        <Point X="5.875" Y="4" />
+        <Point X="5.875" Y="2.691" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="behaviorSettings1" Type="Backround_Cycler.Control.BehaviorSettings" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="4.438" />
+        <Point X="4.125" Y="4.438" />
+        <Point X="4.125" Y="5.346" />
+        <Point X="2.5" Y="5.346" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AkSAIA8AACgAICWQAoGZAHESgMGVAQCAEIRAYAAQQEo=</HashCode>
+      <FileName>Core\UI\Settings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="animate" />
+      <Field Name="about1" />
+      <Field Name="debug1" />
+      <Field Name="imageList1" />
+      <Field Name="behaviorSettings1" />
+      <Property Name="settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Backround_Cycler.Control.ImageList" Collapsed="true">
+    <Position X="8" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQEEAAAgCGKAQAAIAACA5CADEACCIFIIoAAAAahAAYQ=</HashCode>
+      <FileName>Control\ImageList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="fileList" />
+      <Property Name="ChangeBackground" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Backround_Cycler.Core.ChangeBackground" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAEAAAAACAgAAAAAAAAAAAAAgCEAAAiACAAACAAQAA=</HashCode>
+      <FileName>Core\ChangeBackground.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="style" />
+      <Property Name="settings" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="Backround_Cycler.Properties.Settings" Collapsed="true">
+    <Position X="4.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAIAMAEAAIAEQBAABAABBAiAAgACAGAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backround_Cycler.Core.Animation" Collapsed="true">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAAgAAgBAA=</HashCode>
+      <FileName>Core\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backround_Cycler.Core.ApplicationInfo" Collapsed="true">
+    <Position X="4" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="settings" Type="Backround_Cycler.Properties.Settings" FixedFromPoint="true">
+      <Path>
+        <Point X="4.438" Y="6.562" />
+        <Point X="4.438" Y="7.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MainForm" Type="Backround_Cycler.Core.UI.Setting" FixedToPoint="true">
+      <Path>
+        <Point X="5.375" Y="6" />
+        <Point X="5.375" Y="4.691" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EIAAAAgQAABCCAFgAQAAAQABAAGAAkAAAAAAAEAAAQE=</HashCode>
+      <FileName>Core\ApplicationInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="settings" />
+      <Property Name="MainForm" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Backround_Cycler.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="MainForm" Type="Backround_Cycler.Core.UI.Setting" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="1.812" />
+        <Point X="4.76" Y="1.812" />
+        <Point X="4.76" Y="3.278" />
+        <Point X="5.375" Y="3.278" />
+        <Point X="5.375" Y="4" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Settings" Type="Backround_Cycler.Properties.Settings" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="1.75" />
+        <Point X="1.875" Y="1.75" />
+        <Point X="1.875" Y="2.5" />
+        <Point X="0.521" Y="2.5" />
+        <Point X="0.521" Y="8.816" />
+        <Point X="4.688" Y="8.816" />
+        <Point X="4.688" Y="8.441" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAACAQAAAAAAAAAAIAAAAAAAgAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainForm" />
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Backround_Cycler.Enums.DesktopBackgroundStyle">
+    <Position X="8.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAABAAAAAAAAIAABAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enum\DesktopBackgroundStyle.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Backround_Cycler.Enums.IntervelLevel" Collapsed="true">
+    <Position X="10.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAQAABAAAAAAA=</HashCode>
+      <FileName>Enum\IntervelLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,14 @@
+{projectdir}\ Contains Program.cs the entry point to the application. also generated files by Visual Studio
+	\Core - Contains the core of the application
+		\UI - Contains the main User Interface used in the application
+	\Control - contains the controls that are used in the forms
+	\Delegate - contains Delegates.cs that has all the custom delegates that i will be using in this app
+	\Enum - Contains all Enums the project uses
+	\EventArguments - contains custom event arguments
+	\Exceptions - contains custom exceptions 
+	\Interface - custom interfaces used in the project
+	\WPF       - Contains the main User Interface written in WPF
+		\Interop -Contains Addons for the WPF mostly Inhanced controls like clickable links
+	\Resources - contains the Image and Icon resources used in this application
+	
+	\misc files - miscellaneous files // Files like this, the license file, the EULA file, etc

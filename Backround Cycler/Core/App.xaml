@@ -1,0 +1,10 @@
+﻿<Application x:Class="Backround_Cycler.Core.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="..\WPF\MainWindow.xaml"
+             xmlns:properties="clr-namespace:Backround_Cycler.Properties"
+             Exit="Application_Exit">
+    <Application.Resources>
+        <properties:Settings x:Key="Settings" x:Name="Settings" />
+    </Application.Resources>
+</Application>

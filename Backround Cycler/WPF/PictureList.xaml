@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Backround_Cycler.WPF.PictureList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:p="clr-namespace:Backround_Cycler.Properties"
+             d:DesignHeight="368" d:DesignWidth="598">
+    <!--<UserControl.ContextMenu>
+        
+    </UserControl.ContextMenu>-->
+    <UserControl.Resources>
+        <p:Settings x:Key="appSettings" />
+    </UserControl.Resources>
+    <DockPanel Name="dockPanel1" Background="{StaticResource {x:Static SystemColors.ControlBrushKey}}" LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Height="23" Name="menu1">
+            <MenuItem Header="Save"/>
+            <MenuItem Header="Clear List" />
+            <MenuItem Header="Load File" Click="LoadFile_Click" />
+            <MenuItem Header="Load Folder" Click="LoadFolder_Click" />
+            <CheckBox Height="16" Name="checkBox1" IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
+                When loading from folder also load from subfolders
+            </CheckBox>
+        </Menu>
+        <ListView Name="listView1">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="Pictures To Display" Width="585" />
+                </GridView>
+            </ListView.View>
+            <ListViewItem Content="test" />
+            <ListViewItem Content="ttest" />
+        </ListView>
+    </DockPanel>
+</UserControl>
