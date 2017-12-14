@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleInstance", "SingleIns
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc docs", "misc docs", "{1691F9DA-E258-4904-8716-F9C7CD2ABC4B}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
 		README.txt = README.txt
 	EndProjectSection
 EndProject
