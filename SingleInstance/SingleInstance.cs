@@ -9,19 +9,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 using System;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Diagnostics;
 using System.Threading;
 using System.Reflection;
-using System.IO;
 
 namespace SingleInstance
 {
-    /// <summary>
-    /// class to handle making a application a single instance Application
-    /// </summary>
-    public static class SingleApplication
+	/// <summary>
+	/// class to handle making a application a single instance Application
+	/// </summary>
+	public static class SingleApplication
     {
         private static Mutex mutex;
 

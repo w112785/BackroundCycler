@@ -6,7 +6,7 @@
         xmlns:p="clr-namespace:Backround_Cycler.Properties"
         xmlns:my="clr-namespace:Backround_Cycler.WPF.Controls"
         Title="MainWindow" Height="430" Width="800"
-        IsVisibleChanged="Window_IsVisibleChanged" ResizeMode="CanMinimize">
+        IsVisibleChanged="Window_IsVisibleChanged" ResizeMode="CanMinimize" Closing="Window_Closing">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Change Background Now" Click="ChangeBackgroundNow_Click">
@@ -28,7 +28,7 @@
     </Window.Resources>
     <DockPanel LastChildFill="True" Name="dockPanel1">
         <!--  ContextMenu="{Binding Source={StaticResource AppContextMenu}}" -->
-        <tb:TaskbarIcon Name="taskbarIcon" IconSource="/Backround%20Cycler;component/Resources/Cycle.ico">
+        <tb:TaskbarIcon Name="taskbarIcon" IconSource="/Backround%20Cycler;component/Resources/Cycle.ico" NoLeftClickDelay="True" PopupActivation="DoubleClick" TrayMouseDoubleClick="taskbarIcon_TrayMouseDoubleClick">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Change Background Now" Name="ChangeBackgroundNow" Click="ChangeBackgroundNow_Click">

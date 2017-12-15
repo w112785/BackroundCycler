@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
 
 namespace SingleInstance
 {
-    internal static class NativeMethods
+	internal static class NativeMethods
     {
         /// <summary>
         /// This is for The API code DO NOT MODIFY unless you know what you are DOING 

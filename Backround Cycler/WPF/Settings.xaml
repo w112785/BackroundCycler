@@ -29,7 +29,7 @@
         <CheckBox Height="16" HorizontalAlignment="Left" Margin="0,22,0,0" 
                   VerticalAlignment="Top" IsChecked="{Binding Path=Default.ShowDialogOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
             Show window on application startup
-        </CheckBox>       
+        </CheckBox>
         <CheckBox Height="16" Margin="0,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
                   IsChecked="{Binding Path=Default.ChangeOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
             Change Background on program startup
@@ -68,16 +68,21 @@
                   IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
             change at a set intervel
         </CheckBox>
-        <TextBox DataObject.Pasting="textBox1_Pasting" PreviewTextInput="textBox1_PreviewTextInput" Margin="142,175,0,0" 
+        <TextBox DataObject.Pasting="textBox1_Pasting" PreviewTextInput="textBox1_PreviewTextInput" Margin="150,175,0,0" 
                  HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="197,198,0,0" Height="23" 
+        <ScrollBar Name="ChangeTimeScrollBar" Margin="207,177,0,0" Height="23" 
                    VerticalAlignment="Top" Minimum="1" Maximum="100000" 
                    Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
-                   HorizontalAlignment="Left" Width="17">
+                   HorizontalAlignment="Left" Width="17" RenderTransformOrigin="0.5,0.5">
             <ScrollBar.RenderTransform>
-                <ScaleTransform ScaleY="-1" />
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
             </ScrollBar.RenderTransform>
         </ScrollBar>
         <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 

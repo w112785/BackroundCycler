@@ -12,5 +12,9 @@ namespace Backround_Cycler.Core
             Backround_Cycler.Properties.Settings.Default.Save ();
         }
 
-    }
+		private void Application_SessionEnding(object sender, SessionEndingCancelEventArgs e)
+		{
+
+		}
+	}
 }

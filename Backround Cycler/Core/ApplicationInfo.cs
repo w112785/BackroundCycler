@@ -17,10 +17,15 @@ namespace Backround_Cycler.Core
 {
     internal static class ApplicationInfo
     {
+		#region Gloable NonMetaData Variables
 
-        #region For Assembly Attributes
+		internal static bool closeWindow = false;
 
-        public const string programGuid = "6f9f8c3d-81a8-4742-95d9-d10f3e7a2d2b";
+		#endregion
+
+		#region For Assembly Attributes
+
+		public const string programGuid = "6f9f8c3d-81a8-4742-95d9-d10f3e7a2d2b";
         // Version information for an assembly consists of the following four values:
         //
         //      Major Version
@@ -39,7 +44,7 @@ namespace Backround_Cycler.Core
 #if !DEBUG
         public const string BETA = " ";
 #else
-        public const string BETA = "DEVELOPMENT PREVIEW";
+        public const string BETA = "WPF DEVELOPMENT PREVIEW";
 #endif
         public const string strWebsite = 
             "http://backroundcycler.sourceforge.net/";
@@ -77,20 +82,7 @@ namespace Backround_Cycler.Core
         {
             settings = Backround_Cycler.Properties.Settings.Default;
         }
-        /*
-        public static void SetupMainForm ()
-        {
-            if (MainForm == null)
-            {
-                _MainForm = new Setting ();
-            }
-        }
 
-        public static void dispose ()
-        {
-            _MainForm.Dispose ();
-        }
-        */
         #region Assembly Propertys
 
         public static string AssemblyTitle
@@ -116,6 +108,22 @@ namespace Backround_Cycler.Core
                     Assembly.GetExecutingAssembly ().CodeBase );
             }
         }
+
+		public static string AssemblyMajorVersion
+		{
+			get
+			{
+				return Assembly.GetExecutingAssembly().GetName().Version.Major.ToString();
+			}
+		}
+
+		public static string AssemblyMinorVersion
+		{
+			get
+			{
+				return Assembly.GetExecutingAssembly().GetName().Version.Minor.ToString();
+			}
+		}
 
         public static string AssemblyVersion
         {
@@ -191,7 +199,7 @@ namespace Backround_Cycler.Core
 
         #region WPF Controls
 
-        internal static DispatcherTimer timmer = new DispatcherTimer ();
+        internal static DispatcherTimer timer = new DispatcherTimer ();
 
         #endregion
     }

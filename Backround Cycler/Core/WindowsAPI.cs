@@ -92,6 +92,7 @@ namespace Backround_Cycler.Core
 		/// corner of the rectangle.
 		/// </summary>
 		[StructLayout ( LayoutKind.Sequential )]
+		[Obsolete]
 		internal struct RECT
 		{
 			/// <summary>
