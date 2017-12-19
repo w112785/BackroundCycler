@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"
              xmlns:p="clr-namespace:Backround_Cycler.Properties"
-             d:DesignHeight="368" d:DesignWidth="598">
+             d:DesignHeight="368" d:DesignWidth="600">
     <!--<UserControl.ContextMenu>
         
     </UserControl.ContextMenu>-->

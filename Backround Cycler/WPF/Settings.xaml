@@ -8,7 +8,7 @@
              xmlns:ct="clr-namespace:Backround_Cycler.WPF.Controls"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="368" d:DesignWidth="598" IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
+             d:DesignHeight="368" d:DesignWidth="600" IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <p:Settings x:Key="appSettings" />
         <ObjectDataProvider x:Key="BackgroundStyles" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
@@ -22,7 +22,8 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </UserControl.Resources>
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <!--<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">-->
+    <Grid>
         <CheckBox Height="16" Margin="0,0,452,352" IsChecked="{Binding Path=Default.AutoStart, Source={StaticResource appSettings}, Mode=TwoWay}">
             A_utoStart with Windows
         </CheckBox>
@@ -56,7 +57,7 @@
             For images &lt;= to
         </TextBlock>
         <TextBox Height="23" HorizontalAlignment="Left" Margin="96,146,0,0" Name="textBox1" VerticalAlignment="Top"
-                 Width="29" DataObject.Pasting="textBox1_Pasting" PreviewTextInput="textBox1_PreviewTextInput" 
+                 Width="29" DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.SmallestImageSize}" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="127,146,0,0" Name="textBlock1" VerticalAlignment="Top">
             pixels Width or  Height
@@ -68,14 +69,17 @@
                   IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
             change at a set intervel
         </CheckBox>
-        <TextBox DataObject.Pasting="textBox1_Pasting" PreviewTextInput="textBox1_PreviewTextInput" Margin="150,175,0,0" 
+        <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
+                 Margin="150,175,0,0" 
                  HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
-                 Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="207,177,0,0" Height="23" 
-                   VerticalAlignment="Top" Minimum="1" Maximum="100000" 
+                 Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
+                 Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
+        <ScrollBar Name="ChangeTimeScrollBar" Margin="215,175,0,0" Height="30" 
+                   VerticalAlignment="Top" Minimum="10" Maximum="100000"
                    Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
-                   HorizontalAlignment="Left" Width="17" RenderTransformOrigin="0.5,0.5">
+                   HorizontalAlignment="Left" Width="20" RenderTransformOrigin="0.5,0.5"
+                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" MinHeight="20">
             <ScrollBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1" ScaleX="1"/>
@@ -85,8 +89,10 @@
                 </TransformGroup>
             </ScrollBar.RenderTransform>
         </ScrollBar>
-        <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
-                  HorizontalAlignment="Left" Width="120" ItemsSource="{Binding Source={StaticResource IntervelLevelEnum}}" 
+        <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
+                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
+                  HorizontalAlignment="Left" Width="120" 
+                  ItemsSource="{Binding Source={StaticResource IntervelLevelEnum}}" 
                   Text="{Binding Path=Default.TimeIntervelLevel, Source={StaticResource appSettings}}" />
         <CheckBox Content="Show Debug Info" Height="16" HorizontalAlignment="Left" Name="debugCheckBox" 
                   IsChecked="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions}" VerticalAlignment="Bottom" />

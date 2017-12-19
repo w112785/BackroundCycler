@@ -26,7 +26,8 @@ namespace Backround_Cycler.WPF
 
         private void VisibleChanged (object sender, DependencyPropertyChangedEventArgs e)
         {
-            this.labelLastImageShown.Content = labelLastImageText + ApplicationInfo.settings.LastImageShown;
+			//TODO: reload this.
+            //this.labelLastImageShown.Content = labelLastImageText + ApplicationInfo.settings.LastImageShown;
         }
 
         private void LabelWebsite_Click (object sender, RoutedEventArgs e)

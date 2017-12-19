@@ -71,8 +71,8 @@
         </Menu>
         <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180*" />
-                <ColumnDefinition Width="598*" />
+                <ColumnDefinition Width="176" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TreeView Grid.Column="0" HorizontalAlignment="Left" Name="treeView1" VerticalAlignment="Stretch" Width="175">
                 <TreeViewItem Header="About" Name="About" IsSelected="True" />
@@ -82,7 +82,7 @@
                               Visibility="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions,
                                     Converter={StaticResource BoolToVisibilityConverter}}" />
             </TreeView>
-            <GridSplitter Grid.Column="0" HorizontalAlignment="Left" Margin="175,0,0,0" Name="gridSplitter1" VerticalAlignment="Stretch" Width="5" Cursor="Arrow" />
+            <GridSplitter Grid.Column="0" HorizontalAlignment="Left" Margin="175,0,0,0" Name="gridSplitter1" VerticalAlignment="Stretch" Width="1" Cursor="Arrow" />
             <ct:About Grid.Column="1" x:Name="about" Visibility="{Binding ElementName=About, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
             <ct:Settings Grid.Column="1" x:Name="setting" Visibility="{Binding ElementName=Settings, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
             <ct:PictureList Grid.Column="1" x:Name="pictureList" 

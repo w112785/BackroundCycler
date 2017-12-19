@@ -19,9 +19,14 @@ namespace Backround_Cycler.WPF
         private void UserControl_IsVisibleChanged (object sender, DependencyPropertyChangedEventArgs e)
         {
 
-        }
+		}
 
-        private void textBox1_Pasting (object sender, DataObjectPastingEventArgs e)
+		private void UserControl_Loaded(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void textBox_Pasting(object sender, DataObjectPastingEventArgs e)
         {
             if (e.DataObject.GetDataPresent (typeof (String)))
             {
@@ -46,11 +51,6 @@ namespace Backround_Cycler.WPF
         private void textBox1_PreviewTextInput (object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed (e.Text);
-        }
-
-        private void UserControl_Loaded (object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void ChangeTime_TextChanged (object sender, TextChangedEventArgs e)

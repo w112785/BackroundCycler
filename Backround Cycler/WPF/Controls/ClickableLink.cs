@@ -9,12 +9,9 @@ namespace Backround_Cycler.WPF.Controls
     {
         public static readonly RoutedEvent ClickEvent;
 
-        static ClickableLink ()
-        {
-            ClickEvent = ButtonBase.ClickEvent.AddOwner (typeof (ClickableLink));
-        }
+		static ClickableLink() => ClickEvent = ButtonBase.ClickEvent.AddOwner(typeof(ClickableLink));
 
-        public event RoutedEventHandler Click
+		public event RoutedEventHandler Click
         {
             add { AddHandler (ClickEvent, value); }
             remove { RemoveHandler (ClickEvent, value); }
