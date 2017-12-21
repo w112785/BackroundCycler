@@ -34,7 +34,7 @@ namespace Backround_Cycler.Core
         //      Revision
         //
         // keep all numbers do not use stars
-        public const string programVersion = "5.5.0.52";
+        public const string programVersion = "5.5.0.55";
 
         #endregion
 
@@ -52,7 +52,6 @@ namespace Backround_Cycler.Core
             "MailTo:williammccormic@users.sourceforge.net";
         public const string strDonateAddress = 
             "http://sourceforge.net/donate/index.php?group_id=163002";
-		public const string strDisscuss = "http://forums.mccormickcomputers.com/";
         public const string strBugReport = 
             "http://sourceforge.net/tracker2/?func=browse&group_id=163002&atid=826017";
 
@@ -61,7 +60,7 @@ namespace Backround_Cycler.Core
             "William_McCormick" );
         public static readonly string debugFileName = Path.Combine ( localDataPath ,"DEBUG.txt" );
 
-        public static Backround_Cycler.Properties.Settings settings;
+        public static Properties.Settings settings;
 
         /*
         private static Setting _MainForm;
@@ -80,7 +79,7 @@ namespace Backround_Cycler.Core
 
         static ApplicationInfo ()
         {
-            settings = Backround_Cycler.Properties.Settings.Default;
+            settings = Properties.Settings.Default;
         }
 
         #region Assembly Propertys

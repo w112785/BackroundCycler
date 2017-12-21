@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using System.Windows.Controls.Primitives;
 
 namespace Backround_Cycler.WPF
 {
@@ -11,6 +12,8 @@ namespace Backround_Cycler.WPF
 	/// </summary>
 	public partial class Settings : UserControl
     {
+		Button rb;
+		
         public Settings ()
         {
             InitializeComponent ();
@@ -55,22 +58,31 @@ namespace Backround_Cycler.WPF
 
         private void ChangeTime_TextChanged (object sender, TextChangedEventArgs e)
         {
-            decimal number;
-            if (decimal.TryParse (ChangeTime.Text, out number))
-            {
-                if (number < 1)
-                {
-                    ChangeTime.Text = "1";
-                }
-                else if (number > 100000)
-                {
-                    ChangeTime.Text = "100000";
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
+			if (decimal.TryParse(ChangeTime.Text, out decimal number))
+			{
+				if (number < 1)
+				{
+					ChangeTime.Text = "1";
+				}
+				else if (number > 100000)
+				{
+					ChangeTime.Text = "100000";
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+
+		private void RepeatButtonUp_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void RepeatButtonDown_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }
