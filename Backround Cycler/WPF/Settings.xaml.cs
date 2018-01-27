@@ -17,7 +17,9 @@ namespace Backround_Cycler.WPF
         public Settings ()
         {
             InitializeComponent ();
-        }
+			RepeatButtonDown.Content = char.ConvertFromUtf32(8595);
+			RepeatButtonUp.Content = char.ConvertFromUtf32(8593);
+		}
 
         private void UserControl_IsVisibleChanged (object sender, DependencyPropertyChangedEventArgs e)
         {

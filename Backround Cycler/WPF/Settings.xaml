@@ -75,10 +75,10 @@
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
                  Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
-        <RepeatButton x:Name="RepeatButtonUp" Margin="205,187,0,0" Width="10" Height="13" 
+        <RepeatButton x:Name="RepeatButtonUp" Margin="205,174,0,0" Width="10" Height="13" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
                       Click="RepeatButtonUp_Click" Interval="100" />
-        <RepeatButton x:Name="RepeatButtonDown" Margin="205,174,0,0" Width="10" Height="13" 
+        <RepeatButton x:Name="RepeatButtonDown" Margin="205,187,0,0" Width="10" Height="13" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
                       Click="RepeatButtonDown_Click" Interval="100" />
         <ScrollBar Name="ChangeTimeScrollBar" Margin="220,220,0,0" Height="55" 
