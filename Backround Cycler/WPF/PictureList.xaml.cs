@@ -4,6 +4,9 @@ using System.Windows.Controls;
 using frm = System.Windows.Forms;
 using Backround_Cycler.Core;
 using Backround_Cycler.EventArguments;
+using System.IO;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace Backround_Cycler.WPF
 {
@@ -57,10 +60,26 @@ namespace Backround_Cycler.WPF
                 return;
             }
             ApplicationInfo.settings.PicturesFolder = folderBrowserDialog.SelectedPath;
-
+			Thread thread = new Thread(new ThreadStart(AddFilesFromFolder));
+			thread.Start();
+			//this.AddFilesFromFolder();
         }
 
-        private void LoadFile_Click (object sender, RoutedEventArgs e)
+		private void AddFilesFromFolder()
+		{
+			SearchOption opt;
+			if (ApplicationInfo.settings.SubFolders)
+				opt = SearchOption.AllDirectories;
+			else
+				opt = SearchOption.TopDirectoryOnly;
+
+			fileList.AddFilesFromFolder(
+				folderBrowserDialog.SelectedPath, opt);
+
+			fileList.SaveToFile();
+		}
+
+		private void LoadFile_Click (object sender, RoutedEventArgs e)
         {
         }
 
@@ -68,21 +87,36 @@ namespace Backround_Cycler.WPF
 
         void fileList_FilesAdded (object sender, FileAddedEventArgs e)
         {
-            throw new NotImplementedException ();
+			// This method will more then likely be called from a different thread.
+			// So lets make sure that we are in the main thread before we add to the list.
+			this.Dispatcher.BeginInvoke (new EventHandler<FileAddedEventArgs>(FilesAdded), sender, e);
         }
+
+		private void FilesAdded (object sender, FileAddedEventArgs e)
+		{
+			foreach (string FilePath in e.GetFiles)
+			{
+				this.listView1.Items.Add(FilePath);
+			}
+		}
 
         void fileList_FileRemoved (object sender, FileRemovedEventArgs e)
         {
             throw new NotImplementedException ();
         }
 
-        void fileList_FileAdded (object sender, EventArguments.FileAddedEventArgs e)
+        void fileList_FileAdded (object sender, FileAddedEventArgs e)
         {
             ListViewItem lvi = new ListViewItem ();
             lvi.Content = e.FilePath;
             listView1.Items.Add (lvi);
         }
 
-        #endregion
-    }
+		private void MenuItem_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		#endregion
+	}
 }

@@ -83,11 +83,13 @@
                                     Converter={StaticResource BoolToVisibilityConverter}}" />
             </TreeView>
             <GridSplitter Grid.Column="0" HorizontalAlignment="Left" Margin="175,0,0,0" Name="gridSplitter1" VerticalAlignment="Stretch" Width="1" Cursor="Arrow" />
-            <ct:About Grid.Column="1" x:Name="about" Visibility="{Binding ElementName=About, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
-            <ct:Settings Grid.Column="1" x:Name="setting" Visibility="{Binding ElementName=Settings, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
-            <ct:PictureList Grid.Column="1" x:Name="pictureList" 
-                            Visibility="{Binding ElementName=PicturesFolder, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
-            <ct:DEBUG Grid.Column="1" x:Name="DEBUG" Visibility="{Binding ElementName=Debug, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <Canvas Grid.Column="1">
+                <ct:About x:Name="about" Visibility="{Binding ElementName=About, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                <ct:Settings x:Name="setting" Visibility="{Binding ElementName=Settings, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                <ct:PictureList x:Name="pictureList" 
+                                Visibility="{Binding ElementName=PicturesFolder, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                <ct:DEBUG x:Name="DEBUG" Visibility="{Binding ElementName=Debug, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}" />
+            </Canvas>
         </Grid>
     </DockPanel>
 </Window>

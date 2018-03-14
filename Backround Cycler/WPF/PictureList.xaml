@@ -12,24 +12,34 @@
     <UserControl.Resources>
         <p:Settings x:Key="appSettings" />
     </UserControl.Resources>
-    <DockPanel Name="dockPanel1" Background="{StaticResource {x:Static SystemColors.ControlBrushKey}}" LastChildFill="True">
-        <Menu DockPanel.Dock="Top" Height="23" Name="menu1">
+    <!--<DockPanel Name="dockPanel1" Background="{StaticResource {x:Static SystemColors.ControlBrushKey}}" LastChildFill="True">-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="344" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Height="23" Name="menu1">
             <MenuItem Header="Save"/>
-            <MenuItem Header="Clear List" />
+            <MenuItem Header="Clear List" Click="MenuItem_Click" />
             <MenuItem Header="Load File" Click="LoadFile_Click" />
             <MenuItem Header="Load Folder" Click="LoadFolder_Click" />
             <CheckBox Height="16" Name="checkBox1" IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
                 When loading from folder also load from subfolders
             </CheckBox>
         </Menu>
-        <ListView Name="listView1">
+        <ListView Grid.Row="1" Name="listView1" IsTabStop="True">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Clear List" />
+                    <MenuItem Header="Delete Selected"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn Header="Pictures To Display" Width="585" />
                 </GridView>
             </ListView.View>
-            <ListViewItem Content="test" />
-            <ListViewItem Content="ttest" />
         </ListView>
-    </DockPanel>
+    </Grid>
+    <!--</DockPanel>-->
 </UserControl>
