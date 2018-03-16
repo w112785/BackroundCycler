@@ -159,5 +159,10 @@ namespace Backround_Cycler.WPF
 				this.Visibility = Visibility.Hidden;
 			}
 		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			pictureList.CheckForEmptyList();
+		}
 	}
 }

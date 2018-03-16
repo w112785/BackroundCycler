@@ -36,7 +36,7 @@ namespace Backround_Cycler.WPF
 			//fileList.FileRemoved += new EventHandler<FileRemovedEventArgs> (fileList_FileRemoved);
 			fileList.FilesAdded += new EventHandler<FileAddedEventArgs>(fileList_FilesAdded);
 			fileList.ListCleared += FileList_ListCleared;
-
+			fileList.LoadFromFile();
 		}
 
 		private void FileList_ListCleared(object sender, EventArgs e)
@@ -56,6 +56,13 @@ namespace Backround_Cycler.WPF
 				folderBrowserDialog.SelectedPath, opt);
 
 			fileList.SaveToFile();
+		}
+
+		internal void CheckForEmptyList ()
+		{
+			Thread thread = new Thread(new ThreadStart(fileList.CheckForEmptyList));
+			thread.Start();
+			//fileList.CheckForEmptyList();
 		}
 
 		#region UI Events

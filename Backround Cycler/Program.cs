@@ -23,23 +23,6 @@ namespace Backround_Cycler
 	/// </summary>
 	static class Program
 	{
-        /*
-		internal static Core.UI.Setting MainForm
-		{
-			get
-			{
-				return ApplicationInfo.MainForm;
-			}
-		}
-         */
-
-		internal static Properties.Settings Settings
-		{
-			get
-			{
-				return ApplicationInfo.settings;
-			}
-		}
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -116,7 +99,7 @@ namespace Backround_Cycler
 
             try
             {
-                if (Settings.FirstRun)
+                if (ApplicationInfo.settings.FirstRun)
                 {
                     CheckForOldRegistryKey ();
                     Properties.Settings.Default.Upgrade ();

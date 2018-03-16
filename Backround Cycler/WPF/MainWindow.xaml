@@ -6,7 +6,7 @@
         xmlns:p="clr-namespace:Backround_Cycler.Properties"
         xmlns:my="clr-namespace:Backround_Cycler.WPF.Controls"
         Title="MainWindow" Height="430" Width="800"
-        IsVisibleChanged="Window_IsVisibleChanged" ResizeMode="CanMinimize" Closing="Window_Closing">
+        IsVisibleChanged="Window_IsVisibleChanged" ResizeMode="CanMinimize" Closing="Window_Closing" Loaded="Window_Loaded">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Change Background Now" Click="ChangeBackgroundNow_Click">
