@@ -323,6 +323,10 @@ namespace Backround_Cycler.Core
         /// </summary>
         internal void CheckForEmptyList ()
         {
+			if (Count.Equals(0))
+			{
+
+			}
         //    legacy code from Winforms commented for testing
         //    if (Count.Equals ( 0 ))
         //    {

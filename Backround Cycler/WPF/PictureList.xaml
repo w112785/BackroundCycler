@@ -19,19 +19,20 @@
             <RowDefinition Height="344" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="23" Name="menu1">
-            <MenuItem Header="Save"/>
-            <MenuItem Header="Clear List" Click="MenuItem_Click" />
+            <MenuItem Header="Save" Click="Save_Click"/>
+            <MenuItem Header="Clear List" Click="Clear_Click" />
             <MenuItem Header="Load File" Click="LoadFile_Click" />
             <MenuItem Header="Load Folder" Click="LoadFolder_Click" />
-            <CheckBox Height="16" Name="checkBox1" IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
+            <CheckBox Height="16" VerticalAlignment="Bottom"
+                      IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
                 When loading from folder also load from subfolders
             </CheckBox>
         </Menu>
         <ListView Grid.Row="1" Name="listView1" IsTabStop="True">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Clear List" />
-                    <MenuItem Header="Delete Selected"/>
+                    <MenuItem Header="Clear List" Click="Clear_Click" />
+                    <MenuItem Header="Delete Selected" Click="DeleteSelected_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>

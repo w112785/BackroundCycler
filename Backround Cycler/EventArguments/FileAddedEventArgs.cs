@@ -22,7 +22,16 @@ namespace Backround_Cycler.EventArguments
         /// </summary>
         /// <value>The file path.</value>
         public string FilePath { get { return _FilePath; } }
-        public string[] GetFiles { get { return _Files; } }
+        public string[] GetFiles
+		{
+			get
+			{
+				if (_Files != null)
+					return _Files;
+				else
+					return new string[] { _FilePath };
+			}
+		}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileAddedEventArgs"/> class.
