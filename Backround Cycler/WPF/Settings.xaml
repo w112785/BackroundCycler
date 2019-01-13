@@ -70,23 +70,22 @@
             change at a set intervel
         </CheckBox>
         <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
-                 Margin="150,175,0,0" 
+                 Margin="179,174,0,0" 
                  HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
                  Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
-        <RepeatButton x:Name="RepeatButtonUp" Margin="205,174,0,0" Width="10" Height="13" 
+        <RepeatButton x:Name="RepeatButtonUp" Margin="239,175,0,0" Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonUp_Click" Interval="100" />
-        <RepeatButton x:Name="RepeatButtonDown" Margin="205,187,0,0" Width="10" Height="13" 
+                      Click="RepeatButtonUp_Click" Interval="100" RenderTransformOrigin="4.5,-2.077" Content="+" />
+        <RepeatButton x:Name="RepeatButtonDown" Margin="148,175,0,0" Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonDown_Click" Interval="100" />
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="220,220,0,0" Height="55" 
+                      Click="RepeatButtonDown_Click" Interval="100" RenderTransformOrigin="-6.2,-0.154" Content="-" />
+        <ScrollBar Name="ChangeTimeScrollBar" Margin="347,295,0,0" Height="23"
                    VerticalAlignment="Top" Minimum="10" Maximum="100000"
                    Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
-                   HorizontalAlignment="Left" Width="40" RenderTransformOrigin="0.5,0.5"
-                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
-                   MinHeight="20" ViewportSize="25" BorderThickness="1000" MinWidth="0">
+                   HorizontalAlignment="Left" Width="25" RenderTransformOrigin="0.5,0.5"
+                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" Visibility="Visible">
             <ScrollBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1" ScaleX="-1"/>

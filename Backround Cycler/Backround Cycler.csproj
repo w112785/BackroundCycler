@@ -166,7 +166,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
+    <Folder Include="Controls\" />
     <Folder Include="Core\UI\" />
     <Folder Include="Core\Web\" />
     <Folder Include="delegate\" />
