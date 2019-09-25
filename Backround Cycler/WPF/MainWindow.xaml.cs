@@ -21,7 +21,7 @@ namespace Backround_Cycler.WPF
 		private const int MILLISEC2SEC = 1000;
 		private const int MILLISEC2MINS = MILLISEC2SEC * 60;
 		private const int MILLISEC2HOURS = MILLISEC2MINS * 60;
-		private const int MILLISEC2DAYS = MILLISEC2HOURS * 24;		
+		private const int MILLISEC2DAYS = MILLISEC2HOURS * 24;
 
 		#endregion // constants and vareables
 
@@ -36,7 +36,8 @@ namespace Backround_Cycler.WPF
 			//this.about.Visibility = System.Windows.Visibility.Visible;
 
 			this.Title = string.Format("Backround Cycler version: {0}.{1} {2}",
-				ApplicationInfo.AssemblyMajorVersion, ApplicationInfo.AssemblyMinorVersion, ApplicationInfo.BETA);
+				ApplicationInfo.AssemblyMajorVersion, ApplicationInfo.AssemblyMinorVersion,
+				ApplicationInfo.BETA);
 
 			//this.Title = "Backround Cycler version: " +
 			//    Assembly.GetExecutingAssembly ().GetName ().Version.Major.ToString () +
@@ -122,6 +123,7 @@ namespace Backround_Cycler.WPF
 
 		private void Window_Closing(object sender, CancelEventArgs e)
 		{
+			ApplicationInfo.settings.Save();
 			if (!ApplicationInfo.closeWindow)
 			{
 				e.Cancel = true;

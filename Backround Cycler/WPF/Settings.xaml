@@ -7,6 +7,7 @@
              xmlns:enum="clr-namespace:Backround_Cycler.Enums"
              xmlns:ct="clr-namespace:Backround_Cycler.WPF.Controls"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:integration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
              mc:Ignorable="d" 
              d:DesignHeight="368" d:DesignWidth="600" IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
     <UserControl.Resources>
@@ -70,30 +71,25 @@
             change at a set intervel
         </CheckBox>
         <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
-                 Margin="179,174,0,0" 
+                 Margin="171,171,0,0" 
                  HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
-                 Name="ChangeTime" TextChanged="ChangeTime_TextChanged" />
-        <RepeatButton x:Name="RepeatButtonUp" Margin="239,175,0,0" Width="23" Height="23" 
+                 Name="ChangeTime" TextChanged="ChangeTime_TextChanged" 
+                 VerticalScrollBarVisibility="Visible"/>
+        <Button x:Name="RepeatButtonUp" Margin="226,171,0,0" Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonUp_Click" Interval="100" RenderTransformOrigin="4.5,-2.077" Content="+" />
-        <RepeatButton x:Name="RepeatButtonDown" Margin="148,175,0,0" Width="23" Height="23" 
+                      Click="RepeatButtonUp_Click" RenderTransformOrigin="4.5,-2.077" Content="+">
+        </Button>
+        <Button x:Name="RepeatButtonDown" Margin="148,171,0,0" Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonDown_Click" Interval="100" RenderTransformOrigin="-6.2,-0.154" Content="-" />
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="347,295,0,0" Height="23"
-                   VerticalAlignment="Top" Minimum="10" Maximum="100000"
+                      Click="RepeatButtonDown_Click" RenderTransformOrigin="-6.2,-0.154" Content="-">
+        </Button>
+        <ScrollBar Name="ChangeTimeScrollBar" Margin="188,199,0,0" Height="23"
+                   VerticalAlignment="Top" Minimum="1" Maximum="100000"
                    Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
-                   HorizontalAlignment="Left" Width="25" RenderTransformOrigin="0.5,0.5"
-                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" Visibility="Visible">
-            <ScrollBar.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1" ScaleX="-1"/>
-                    <SkewTransform AngleY="0" AngleX="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform Y="-5"/>
-                </TransformGroup>
-            </ScrollBar.RenderTransform>
+                   HorizontalAlignment="Left" Width="25">
+            
         </ScrollBar>
         <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
@@ -102,5 +98,6 @@
                   Text="{Binding Path=Default.TimeIntervelLevel, Source={StaticResource appSettings}}" />
         <CheckBox Content="Show Debug Info" Height="16" HorizontalAlignment="Left" Name="debugCheckBox" 
                   IsChecked="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions}" VerticalAlignment="Bottom" />
+        <integration:WindowsFormsHost HorizontalAlignment="Left" Height="100" Margin="363,199,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>

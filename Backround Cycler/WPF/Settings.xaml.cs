@@ -17,8 +17,8 @@ namespace Backround_Cycler.WPF
         public Settings ()
         {
             InitializeComponent ();
-			RepeatButtonDown.Content = char.ConvertFromUtf32(8595);
-			RepeatButtonUp.Content = char.ConvertFromUtf32(8593);
+			//RepeatButtonDown.Content = char.ConvertFromUtf32(8595);
+			//RepeatButtonUp.Content = char.ConvertFromUtf32(8593);
 		}
 
         private void UserControl_IsVisibleChanged (object sender, DependencyPropertyChangedEventArgs e)
@@ -79,12 +79,34 @@ namespace Backround_Cycler.WPF
 
 		private void RepeatButtonUp_Click(object sender, RoutedEventArgs e)
 		{
+			if(decimal.TryParse(ChangeTime.Text, out decimal number))
+			{
+				number++;
+				if (number > 100000)
+					number = 100000;
 
+				ChangeTime.Text = number.ToString();
+			}
+			else
+			{
+				return;
+			}
 		}
 
 		private void RepeatButtonDown_Click(object sender, RoutedEventArgs e)
 		{
+			if (decimal.TryParse(ChangeTime.Text, out decimal number))
+			{
+				number--;
+				if (number < 1)
+					number = 1;
 
+				ChangeTime.Text = number.ToString();
+			}
+			else
+			{
+				return;
+			}
 		}
 	}
 }
