@@ -29,7 +29,7 @@ using System;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("William McCormick")]
 [assembly: AssemblyProduct("Backround Cycler")]
-[assembly: AssemblyCopyright("Copyright © 2006-2017, By William Edward McCormick")]
+[assembly: AssemblyCopyright("Copyright © 2006-2019, By William Edward McCormick")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

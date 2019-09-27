@@ -22,6 +22,8 @@
                 <x:Type TypeName="enum:IntervelLevel" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+
+
     </UserControl.Resources>
     <!--<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">-->
     <Grid>
@@ -70,26 +72,35 @@
                   IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
             change at a set intervel
         </CheckBox>
-        <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
-                 Margin="171,171,0,0" 
+        <Grid Margin="171,171,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
                  HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
                  Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
                  Name="ChangeTime" TextChanged="ChangeTime_TextChanged" 
-                 VerticalScrollBarVisibility="Visible"/>
-        <Button x:Name="RepeatButtonUp" Margin="226,171,0,0" Width="23" Height="23" 
+                 VerticalScrollBarVisibility="Visible" Grid.Column="0"/>
+            <StackPanel Grid.Column="1">
+                <Button x:Name="RepeatButtonUp" Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
                       Click="RepeatButtonUp_Click" RenderTransformOrigin="4.5,-2.077" Content="+">
-        </Button>
-        <Button x:Name="RepeatButtonDown" Margin="148,171,0,0" Width="23" Height="23" 
+                </Button>
+                <Button x:Name="RepeatButtonDown"  Width="23" Height="23" 
                       VerticalAlignment="Top" HorizontalAlignment="Left" 
                       Click="RepeatButtonDown_Click" RenderTransformOrigin="-6.2,-0.154" Content="-">
-        </Button>
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="188,199,0,0" Height="23"
+                </Button>
+            </StackPanel>
+        </Grid>
+        <ct:NumberUpDown Margin="165,199,355,145" />
+        
+        <ScrollBar Name="ChangeTimeScrollBar" Margin="201,38,0,0" Height="50"
                    VerticalAlignment="Top" Minimum="1" Maximum="100000"
                    Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
                    HorizontalAlignment="Left" Width="25">
-            
+
         </ScrollBar>
         <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
                   IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 

@@ -108,6 +108,9 @@
     </Compile>
     <Compile Include="WPF\Controls\BooleanToVisibilityConverter.cs" />
     <Compile Include="WPF\Controls\ClickableLink.cs" />
+    <Compile Include="WPF\Controls\NumberUpDown.xaml.cs">
+      <DependentUpon>NumberUpDown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\DEBUG.xaml.cs">
       <DependentUpon>DEBUG.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="WPF\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\Controls\NumberUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
