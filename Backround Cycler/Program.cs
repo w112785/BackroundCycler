@@ -30,10 +30,10 @@ namespace Backround_Cycler
 		/// <param name="args">The args.</param>
 		[STAThread]
 		static void Main ( string[] args )
-        {
-#if !TESTING_WPF
-			Application.EnableVisualStyles ();
-			Application.SetCompatibleTextRenderingDefault ( false );
+		{
+
+			App app = new App ();
+			
 			try
 			{
 				if (ApplicationInfo.settings.FirstRun)
@@ -42,85 +42,21 @@ namespace Backround_Cycler
 					Properties.Settings.Default.Upgrade ();
 					ApplicationInfo.settings.FirstRun = false;
 				}
-				ApplicationInfo.SetupMainForm ();
 			}
-			catch (Exception CEex)
+			catch (Exception ex)
 			{
-				LogError ( CEex );
+				LogError (ex);
 				Error ();
-				return;
+				throw;
 			}
 
-			ApplicationInfo.MainForm.imageList1.CheckForEmptyList ();
+			
 
-			// Change background on startup if user Wishes
-			if (ApplicationInfo.settings.ChangeOnStartup)
-			{
-				ApplicationInfo.MainForm.StartThread ();
-			}
+			app.InitializeComponent ();
+			app.Run ();
+			//System.Windows.Application app = new System.Windows.Application ();
 
-			try
-			{
-				if (ApplicationInfo.settings.ShowDialogOnStartup)
-				{
-					if (!SingleApplication.Run ( ApplicationInfo.programGuid, ApplicationInfo.MainForm ))
-					{
-						ApplicationInfo.MainForm.appNotifyIconVisible = false;
-						Application.Exit ();
-					}
-				}
-				else
-				{
-					if (!SingleApplication.Run ( ApplicationInfo.programGuid ))
-					{
-						ApplicationInfo.MainForm.appNotifyIconVisible = false;
-						Application.Exit ();
-					}
-				}
-			}
-			catch (Exception ex) // log the error and display a normal message
-			{
-				LogError ( ex );
-				Error ();
-				return;
-			}
-			if ((ApplicationInfo.MainForm != null))
-			{
-				if (ApplicationInfo.MainForm.appNotifyIconVisible)
-				{
-					ApplicationInfo.MainForm.appNotifyIconVisible = false;
-				}
-			}
-
-			HandleThreads.StopAllThreads ();
-#else
-
-            App app = new App ();
-
-            try
-            {
-                if (ApplicationInfo.settings.FirstRun)
-                {
-                    CheckForOldRegistryKey ();
-                    Properties.Settings.Default.Upgrade ();
-                    ApplicationInfo.settings.FirstRun = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                LogError (ex);
-                Error ();
-                throw;
-            }
-
-            
-
-            app.InitializeComponent ();
-            app.Run ();
-            //System.Windows.Application app = new System.Windows.Application ();
-
-            //app.Run (new WPF.MainWindow ());
-#endif
+			//app.Run (new WPF.MainWindow ());
 		}
 
 		/// <summary>

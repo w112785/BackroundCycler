@@ -8,7 +8,7 @@
 	\Exceptions - contains custom exceptions 
 	\Interface - custom interfaces used in the project
 	\WPF       - Contains the main User Interface written in WPF
-		\Interop -Contains Addons for the WPF mostly Inhanced controls like clickable links
+		\Controls -Contains Addons for the WPF mostly Inhanced controls like clickable links
 	\Resources - contains the Image and Icon resources used in this application
 	
 	\misc files - miscellaneous files // Files like this, the license file, the EULA file, etc

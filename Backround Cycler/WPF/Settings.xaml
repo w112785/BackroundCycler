@@ -1,114 +1,86 @@
 ﻿<UserControl x:Class="Backround_Cycler.WPF.Settings"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:p="clr-namespace:Backround_Cycler.Properties"
-             xmlns:enum="clr-namespace:Backround_Cycler.Enums"
-             xmlns:ct="clr-namespace:Backround_Cycler.WPF.Controls"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:integration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
-             mc:Ignorable="d" 
-             d:DesignHeight="368" d:DesignWidth="600" IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
-    <UserControl.Resources>
-        <p:Settings x:Key="appSettings" />
-        <ObjectDataProvider x:Key="BackgroundStyles" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="enum:DesktopBackgroundStyle" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-        <ObjectDataProvider x:Key="IntervelLevelEnum" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="enum:IntervelLevel" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:p="clr-namespace:Backround_Cycler.Properties"
+			 xmlns:enum="clr-namespace:Backround_Cycler.Enums"
+			 xmlns:ct="clr-namespace:Backround_Cycler.WPF.Controls"
+			 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+			 xmlns:integration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="368" d:DesignWidth="600" IsVisibleChanged="UserControl_IsVisibleChanged" Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<p:Settings x:Key="appSettings" />
+		<ObjectDataProvider x:Key="BackgroundStyles" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
+			<ObjectDataProvider.MethodParameters>
+				<x:Type TypeName="enum:DesktopBackgroundStyle" />
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
+		<ObjectDataProvider x:Key="IntervelLevelEnum" ObjectType="{x:Type sys:Enum}" MethodName="GetValues">
+			<ObjectDataProvider.MethodParameters>
+				<x:Type TypeName="enum:IntervelLevel" />
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
 
 
-    </UserControl.Resources>
-    <!--<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">-->
-    <Grid>
-        <CheckBox Height="16" Margin="0,0,452,352" IsChecked="{Binding Path=Default.AutoStart, Source={StaticResource appSettings}, Mode=TwoWay}">
-            A_utoStart with Windows
-        </CheckBox>
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="0,22,0,0" 
-                  VerticalAlignment="Top" IsChecked="{Binding Path=Default.ShowDialogOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
-            Show window on application startup
-        </CheckBox>
-        <CheckBox Height="16" Margin="0,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                  IsChecked="{Binding Path=Default.ChangeOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
-            Change Background on program startup
-        </CheckBox>
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top"
-                  IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
-            When loading a folder, also load from subfolders
-        </CheckBox>
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,88,0,0" VerticalAlignment="Top">
-            For images larger than the screen
-        </TextBlock>
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="271,88,0,0" VerticalAlignment="Top" Width="120" 
-                  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
-                  SelectedItem="{Binding Source={StaticResource appSettings}, Path=Default.LargeImageBehavior}" 
-                  Text="{Binding Path=Default.LargeImageBehavior, Source={StaticResource appSettings}}" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,117,0,0" VerticalAlignment="Top">
-            For images smaller than the screen
-        </TextBlock>
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="271,117,0,0" VerticalAlignment="Top" Width="120" 
-                  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
-                  SelectedItem="{Binding Source={StaticResource appSettings}, Path=Default.SmallImageBehavior}" 
-                  Text="{Binding Path=Default.SmallImageBehavior, Source={StaticResource appSettings}}" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,146,0,199">
-            For images &lt;= to
-        </TextBlock>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="96,146,0,0" Name="textBox1" VerticalAlignment="Top"
-                 Width="29" DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput" 
-                 Text="{Binding Source={StaticResource appSettings}, Path=Default.SmallestImageSize}" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="127,146,0,0" Name="textBlock1" VerticalAlignment="Top">
-            pixels Width or  Height
-        </TextBlock>
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="271,146,0,0" VerticalAlignment="Top" Width="120" 
-                  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
-                  Text="{Binding Path=Default.SmallestImageBehavior, Source={StaticResource appSettings}}" />
-        <CheckBox Name="intervel" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,175,0,0" 
-                  IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
-            change at a set intervel
-        </CheckBox>
-        <Grid Margin="171,171,0,0" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="20" />
-            </Grid.ColumnDefinitions>
-            <TextBox DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput"
-                 HorizontalAlignment="Left" Width="55" Height="23" VerticalAlignment="Top" 
-                 IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
-                 Text="{Binding Source={StaticResource appSettings}, Path=Default.change_time}" 
-                 Name="ChangeTime" TextChanged="ChangeTime_TextChanged" 
-                 VerticalScrollBarVisibility="Visible" Grid.Column="0"/>
-            <StackPanel Grid.Column="1">
-                <Button x:Name="RepeatButtonUp" Width="23" Height="23" 
-                      VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonUp_Click" RenderTransformOrigin="4.5,-2.077" Content="+">
-                </Button>
-                <Button x:Name="RepeatButtonDown"  Width="23" Height="23" 
-                      VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      Click="RepeatButtonDown_Click" RenderTransformOrigin="-6.2,-0.154" Content="-">
-                </Button>
-            </StackPanel>
-        </Grid>
-        <ct:NumberUpDown Margin="165,199,355,145" />
-        
-        <ScrollBar Name="ChangeTimeScrollBar" Margin="201,38,0,0" Height="50"
-                   VerticalAlignment="Top" Minimum="1" Maximum="100000"
-                   Value="{Binding Path=Text, ElementName=ChangeTime}" SmallChange="1"
-                   HorizontalAlignment="Left" Width="25">
-
-        </ScrollBar>
-        <ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
-                  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
-                  HorizontalAlignment="Left" Width="120" 
-                  ItemsSource="{Binding Source={StaticResource IntervelLevelEnum}}" 
-                  Text="{Binding Path=Default.TimeIntervelLevel, Source={StaticResource appSettings}}" />
-        <CheckBox Content="Show Debug Info" Height="16" HorizontalAlignment="Left" Name="debugCheckBox" 
-                  IsChecked="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions}" VerticalAlignment="Bottom" />
-        <integration:WindowsFormsHost HorizontalAlignment="Left" Height="100" Margin="363,199,0,0" VerticalAlignment="Top" Width="100"/>
-    </Grid>
+	</UserControl.Resources>
+	<!--<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">-->
+	<Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+		<CheckBox Height="16" Margin="0,0,452,352" IsChecked="{Binding Path=Default.AutoStart, Source={StaticResource appSettings}, Mode=TwoWay}">
+			A_utoStart with Windows
+		</CheckBox>
+		<CheckBox Height="16" HorizontalAlignment="Left" Margin="0,22,0,0" 
+				  VerticalAlignment="Top" IsChecked="{Binding Path=Default.ShowDialogOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
+			Show window on application startup
+		</CheckBox>
+		<CheckBox Height="16" Margin="0,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
+				  IsChecked="{Binding Path=Default.ChangeOnStartup, Source={StaticResource appSettings}, Mode=TwoWay}">
+			Change Background on program startup
+		</CheckBox>
+		<CheckBox Height="16" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top"
+				  IsChecked="{Binding Path=Default.SubFolders, Source={StaticResource appSettings}, Mode=TwoWay}">
+			When loading a folder, also load from subfolders
+		</CheckBox>
+		<TextBlock Height="23" HorizontalAlignment="Left" Margin="0,88,0,0" VerticalAlignment="Top">
+			For images larger than the screen
+		</TextBlock>
+		<ComboBox Height="23" HorizontalAlignment="Left" Margin="271,88,0,0" VerticalAlignment="Top" Width="120" 
+				  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
+				  SelectedItem="{Binding Source={StaticResource appSettings}, Path=Default.LargeImageBehavior}" 
+				  Text="{Binding Path=Default.LargeImageBehavior, Source={StaticResource appSettings}}" />
+		<TextBlock Height="23" HorizontalAlignment="Left" Margin="0,117,0,0" VerticalAlignment="Top">
+			For images smaller than the screen
+		</TextBlock>
+		<ComboBox Height="23" HorizontalAlignment="Left" Margin="271,117,0,0" VerticalAlignment="Top" Width="120" 
+				  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
+				  SelectedItem="{Binding Source={StaticResource appSettings}, Path=Default.SmallImageBehavior}" 
+				  Text="{Binding Path=Default.SmallImageBehavior, Source={StaticResource appSettings}}" />
+		<TextBlock Height="23" HorizontalAlignment="Left" Margin="0,146,0,199">
+			For images &lt;= to
+		</TextBlock>
+		<TextBox Height="23" HorizontalAlignment="Left" Margin="96,146,0,0" Name="textBox1" VerticalAlignment="Top"
+				 Width="29" DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox1_PreviewTextInput" 
+				 Text="{Binding Source={StaticResource appSettings}, Path=Default.SmallestImageSize}" />
+		<TextBlock Height="23" HorizontalAlignment="Left" Margin="127,146,0,0" Name="textBlock1" VerticalAlignment="Top">
+			pixels Width or  Height
+		</TextBlock>
+		<ComboBox Height="23" HorizontalAlignment="Left" Margin="271,146,0,0" VerticalAlignment="Top" Width="120" 
+				  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
+				  Text="{Binding Path=Default.SmallestImageBehavior, Source={StaticResource appSettings}}" />
+		<CheckBox Name="intervel" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,175,0,0" 
+				  IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
+			change at a set intervel
+		</CheckBox>
+		
+		<ct:NumberUpDown x:Name="TimeChangeText" Margin="165,175,355,169" />
+		
+		<ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
+				  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
+				  HorizontalAlignment="Left" Width="120" 
+				  ItemsSource="{Binding Source={StaticResource IntervelLevelEnum}}" 
+				  Text="{Binding Path=Default.TimeIntervelLevel, Source={StaticResource appSettings}}" />
+		<CheckBox Content="Show Debug Info" Height="16" HorizontalAlignment="Left" Name="debugCheckBox" 
+				  IsChecked="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions}" VerticalAlignment="Bottom" />
+	</Grid>
 </UserControl>

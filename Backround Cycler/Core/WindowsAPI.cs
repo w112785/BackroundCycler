@@ -152,7 +152,7 @@ namespace Backround_Cycler.Core
 		[DllImport ( "user32.dll", EntryPoint = "DrawAnimatedRects",
 					CharSet = CharSet.Auto )]
 		[return: MarshalAs ( UnmanagedType.Bool )]
-        [Obsolete]
+		[Obsolete]
 		internal static extern bool DrawAnimatedRects ( IntPtr hwnd, int idAni,
 													 ref RECT lprcFrom,
 													 ref RECT lprcTo );
@@ -176,7 +176,7 @@ namespace Backround_Cycler.Core
 		[DllImport ( "user32.dll", EntryPoint = "GetWindowRect",
 					CharSet = CharSet.Auto )]
 		[return: MarshalAs ( UnmanagedType.Bool )]
-        [Obsolete]
+		[Obsolete]
 		internal extern static bool GetWindowRect ( IntPtr hwnd, ref RECT lpRect );
 
 		/// <summary>
@@ -210,7 +210,7 @@ namespace Backround_Cycler.Core
 		/// If the function fails, the return value is NULL</returns>
 		[DllImport ( "user32.dll", EntryPoint = "FindWindowEx",
 					CharSet = CharSet.Auto )]
-        [Obsolete]
+		[Obsolete]
 		internal extern static IntPtr FindWindowEx (
 			IntPtr hwndParent,
 			IntPtr hwndChildAfter,

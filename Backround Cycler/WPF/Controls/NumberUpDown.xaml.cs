@@ -34,7 +34,7 @@ namespace Backround_Cycler.WPF.Controls
 		// This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty MaximumProperty =
 			DependencyProperty.Register("Maximum", typeof(int),
-			typeof(NumberUpDown), new UIPropertyMetadata(100));
+			typeof(NumberUpDown), new UIPropertyMetadata(100000));
 
 		/// <summary>
 		/// Minimum value of the numeric up down control.
@@ -49,7 +49,7 @@ namespace Backround_Cycler.WPF.Controls
 		// This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty MinimumProperty =
 			DependencyProperty.Register("Minimum", typeof(int),
-			typeof(NumberUpDown), new UIPropertyMetadata(0));
+			typeof(NumberUpDown), new UIPropertyMetadata(1));
 
 		public int Value
 		{
@@ -79,15 +79,39 @@ namespace Backround_Cycler.WPF.Controls
 
 		#endregion
 
+		private Regex _numMatch;
+
 		public NumberUpDown()
 		{
 			InitializeComponent();
+
+			_numMatch = new Regex(@"^-?\d+$");
+			Maximum = int.MaxValue;
+			Minimum = 0;
+			TextBoxValue.Text = "0";
 		}
 
-		private void textBox1_PreviewTextInput(object sender, TextCompositionEventArgs e)
+		private void TextBoxValue_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
-			Regex regex = new Regex("[^0-9-]+"); //regex that matches disallowed text
-			e.Handled = !regex.IsMatch(((TextBox)sender).Text);
+			e.Handled = !_numMatch.IsMatch(((TextBox)sender).Text);
+		}
+
+		private void Increase_Click(object sender, RoutedEventArgs e)
+		{
+			if (Value < Maximum)
+			{
+				Value++;
+				//RaiseEvent(new RoutedEventArgs(IncreaseClickedEvent));
+			}
+		}
+
+		private void Decrease_Click(object sender, RoutedEventArgs e)
+		{
+			if (Value > Minimum)
+			{
+				Value--;
+				//RaiseEvent(new RoutedEventArgs(DecreaseClickedEvent));
+			}
 		}
 	}
 }
