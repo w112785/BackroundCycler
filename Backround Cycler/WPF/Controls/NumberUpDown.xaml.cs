@@ -24,51 +24,52 @@ namespace Backround_Cycler.WPF.Controls
 		/// <summary>
 		/// Maximum value for the Numeric Up Down control
 		/// </summary>
-		public int Maximum
+		public decimal Maximum
 		{
-			get { return (int)GetValue(MaximumProperty); }
+			get { return (decimal)GetValue(MaximumProperty); }
 			set { SetValue(MaximumProperty, value); }
 		}
 
 		// Using a DependencyProperty as the backing store for Maximum.  
 		// This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty MaximumProperty =
-			DependencyProperty.Register("Maximum", typeof(int),
-			typeof(NumberUpDown), new UIPropertyMetadata(100000));
+			DependencyProperty.Register("Maximum", typeof(decimal),
+			typeof(NumberUpDown), new UIPropertyMetadata(100000.0M));
 
 		/// <summary>
 		/// Minimum value of the numeric up down control.
 		/// </summary>
-		public int Minimum
+		public decimal Minimum
 		{
-			get { return (int)GetValue(MinimumProperty); }
+			get { return (decimal)GetValue(MinimumProperty); }
 			set { SetValue(MinimumProperty, value); }
 		}
 
 		// Using a DependencyProperty as the backing store for Minimum.  
 		// This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty MinimumProperty =
-			DependencyProperty.Register("Minimum", typeof(int),
-			typeof(NumberUpDown), new UIPropertyMetadata(1));
+			DependencyProperty.Register("Minimum", typeof(decimal),
+			typeof(NumberUpDown), new UIPropertyMetadata(1M));
 
-		public int Value
+		public decimal NumValue
 		{
 			get
 			{
-				return (int)GetValue(ValueProperty);
+				return (decimal)GetValue(NumValueProperty);
 			}
 			set
 			{
 				TextBoxValue.Text = value.ToString();
-				SetValue(ValueProperty, value);
+				SetValue(NumValueProperty, value);
 			}
 		}
 
 		// Using a DependencyProperty as the backing store for Value. 
 		// This enables animation, styling, binding, etc...
-		public static readonly DependencyProperty ValueProperty =
-			DependencyProperty.Register("Value", typeof(int), typeof(NumberUpDown),
-			new PropertyMetadata(0, new PropertyChangedCallback(OnSomeValuePropertyChanged)));
+		public static readonly DependencyProperty NumValueProperty =
+			DependencyProperty.Register("NumValue", typeof(decimal), typeof(NumberUpDown),
+			new PropertyMetadata(1M, 
+				new PropertyChangedCallback(OnSomeValuePropertyChanged)));
 
 		private static void OnSomeValuePropertyChanged(
 			DependencyObject target, DependencyPropertyChangedEventArgs e)
@@ -79,37 +80,35 @@ namespace Backround_Cycler.WPF.Controls
 
 		#endregion
 
-		private Regex _numMatch;
-
 		public NumberUpDown()
 		{
 			InitializeComponent();
-
-			_numMatch = new Regex(@"^-?\d+$");
-			Maximum = int.MaxValue;
-			Minimum = 0;
-			TextBoxValue.Text = "0";
 		}
 
 		private void TextBoxValue_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
-			e.Handled = !_numMatch.IsMatch(((TextBox)sender).Text);
+			Regex regex = new Regex("[^0-9-]+"); //regex that matches allowed text
+			e.Handled = regex.IsMatch(e.Text);
+		}
+		private void TextBoxValue_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
 		}
 
 		private void Increase_Click(object sender, RoutedEventArgs e)
 		{
-			if (Value < Maximum)
+			if (NumValue < Maximum)
 			{
-				Value++;
+				NumValue++;
 				//RaiseEvent(new RoutedEventArgs(IncreaseClickedEvent));
 			}
 		}
 
 		private void Decrease_Click(object sender, RoutedEventArgs e)
 		{
-			if (Value > Minimum)
+			if (NumValue > Minimum)
 			{
-				Value--;
+				NumValue--;
 				//RaiseEvent(new RoutedEventArgs(DecreaseClickedEvent));
 			}
 		}

@@ -68,13 +68,16 @@
 		<ComboBox Height="23" HorizontalAlignment="Left" Margin="271,146,0,0" VerticalAlignment="Top" Width="120" 
 				  ItemsSource="{Binding Source={StaticResource BackgroundStyles}}" 
 				  Text="{Binding Path=Default.SmallestImageBehavior, Source={StaticResource appSettings}}" />
-		<CheckBox Name="intervel" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,175,0,0" 
-				  IsChecked="{Binding Path=Default.autochange, Source={StaticResource appSettings}}">
+		<CheckBox Name="intervel" Height="23" 
+				  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,175,0,0" 
+				  IsChecked="{Binding Path=Default.autochange,
+				  Source={StaticResource appSettings}}">
 			change at a set intervel
 		</CheckBox>
-		
-		<ct:NumberUpDown x:Name="TimeChangeText" Margin="165,175,355,169" />
-		
+		<ct:NumberUpDown x:Name="TimeChangeText" Margin="165,175,355,169" 
+						 IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
+						 Maximum="10000" Minimum="1" 
+						 NumValue="{Binding change_time, Mode=TwoWay, Source={StaticResource Settings}}" />
 		<ComboBox Height="23" Margin="271,175,0,0" VerticalAlignment="Top" 
 				  IsEnabled="{Binding ElementName=intervel, Path=IsChecked}" 
 				  HorizontalAlignment="Left" Width="120" 
@@ -82,5 +85,6 @@
 				  Text="{Binding Path=Default.TimeIntervelLevel, Source={StaticResource appSettings}}" />
 		<CheckBox Content="Show Debug Info" Height="16" HorizontalAlignment="Left" Name="debugCheckBox" 
 				  IsChecked="{Binding Source={StaticResource appSettings}, Path=Default.ShowAdvancedOptions}" VerticalAlignment="Bottom" />
+		
 	</Grid>
 </UserControl>

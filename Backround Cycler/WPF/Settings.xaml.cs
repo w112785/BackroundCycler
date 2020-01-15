@@ -12,13 +12,12 @@ namespace Backround_Cycler.WPF
 	/// </summary>
 	public partial class Settings : UserControl
 	{
-		Button rb;
-		
 		public Settings ()
 		{
 			InitializeComponent ();
 			//RepeatButtonDown.Content = char.ConvertFromUtf32(8595);
 			//RepeatButtonUp.Content = char.ConvertFromUtf32(8593);
+			//TimeChangeText.Value = 10;
 		}
 
 		private void UserControl_IsVisibleChanged (object sender, DependencyPropertyChangedEventArgs e)
@@ -60,30 +59,14 @@ namespace Backround_Cycler.WPF
 
 		private void ChangeTime_TextChanged (object sender, TextChangedEventArgs e)
 		{
-			if (TimeChangeText.Value < 1)
+			if (TimeChangeText.NumValue < 1M)
 			{
-				TimeChangeText.Value = 1;
+				TimeChangeText.NumValue = 1M;
 			}
-			else if (TimeChangeText.Value > 100000)
+			else if (TimeChangeText.NumValue > 100000M)
 			{
-				TimeChangeText.Value = 100000;
+				TimeChangeText.NumValue = 100000M;
 			}
-
-			//if (decimal.TryParse(ChangeTime.Text, out decimal number))
-			//{
-			//	if (number < 1)
-			//	{
-			//		ChangeTime.Text = "1";
-			//	}
-			//	else if (number > 100000)
-			//	{
-			//		ChangeTime.Text = "100000";
-			//	}
-			//}
-			//else
-			//{
-			//	return;
-			//}
 		}
 	}
 }

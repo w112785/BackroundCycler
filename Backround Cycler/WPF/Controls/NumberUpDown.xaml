@@ -13,7 +13,7 @@
 		</Grid.ColumnDefinitions>
 		<TextBox Name="TextBoxValue"
 			 TextAlignment="Right"
-			 Grid.Column="0" PreviewTextInput="TextBoxValue_PreviewTextInput"/>
+			 Grid.Column="0" PreviewTextInput="TextBoxValue_PreviewTextInput" TextChanged="TextBoxValue_TextChanged"/>
 		<StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
 			<Button x:Name="Increase" Height="12" Click="Increase_Click">+</Button>
 			<Button x:Name="Decrease" Height="12" Click="Decrease_Click">-</Button>

@@ -34,7 +34,7 @@ namespace Backround_Cycler.Core
         //      Revision
         //
         // keep all numbers do not use stars
-        public const string programVersion = "5.5.0.59";
+        public const string programVersion = "5.5.1.59";
 
         #endregion
 

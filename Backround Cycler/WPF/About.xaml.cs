@@ -10,7 +10,7 @@ namespace Backround_Cycler.WPF
 	/// </summary>
 	public partial class About : UserControl
 	{
-		private readonly string labelLastImageText = "Last Image Shown: ";
+		//private readonly string labelLastImageText = "Last Image Shown: ";
 
 		public About ()
 		{

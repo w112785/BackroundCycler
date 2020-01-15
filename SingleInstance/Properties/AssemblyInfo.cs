@@ -17,7 +17,6 @@ using System.Security;
 [assembly: AssemblyCulture("")]
 
 [assembly: AllowPartiallyTrustedCallers()]
-[assembly: IsolatedStorageFilePermission(SecurityAction.RequestMinimum)]
 
 // after reading a artical on CLS Compiants this is true
 [assembly: CLSCompliant(true)]
